@@ -1,0 +1,24 @@
+
+body{
+    background: #222;
+}
+
+#canvasDiv{
+    margin: 0 auto;
+}
+canvas{
+    margin: 20px;
+    background: #111;
+    border-radius: 5px;
+    border: 1px solid #007ded;
+}
+button{
+    width: 20%;
+    background: #334;
+    border: 1px solid #007ded;
+    color: #007ded;
+    border-radius: 5px;
+}
+p{
+    color: #007ded;
+}
