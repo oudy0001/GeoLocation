@@ -15,6 +15,7 @@ canvas{
 button{
     width: 20%;
     background: #334;
+    margin: 0 auto;
     border: 1px solid #007ded;
     color: #007ded;
     border-radius: 5px;
