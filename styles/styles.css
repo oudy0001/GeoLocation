@@ -11,6 +11,7 @@ canvas{
     background: #111;
     border-radius: 5px;
     border: 1px solid #007ded;
+    width: 100%;
     max-width: 400px;
     margin: 0 auto;
     display: block;
