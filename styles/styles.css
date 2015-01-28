@@ -11,9 +11,13 @@ canvas{
     background: #111;
     border-radius: 5px;
     border: 1px solid #007ded;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
 }
 button{
-    width: 20%;
+    width: 100%;
+    max-width: 100px;
     background: #334;
     margin: 0 auto;
     border: 1px solid #007ded;
@@ -22,4 +26,7 @@ button{
 }
 p{
     color: #007ded;
+    font-family: sans-serif;
+    margin: 0 auto;
+    text-align: center;
 }

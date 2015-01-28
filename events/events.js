@@ -1,6 +1,6 @@
 
 //Gobal Variables
-var WAIBtn, FlagCanCreation = false, canvas, context, output;
+var WAIBtn, FlagCanCreation = false, canvas, context, output, form, img, wrapper;
 
 //Scaffolding Code
 var scafDiv, scafPar, scafFresh, scafString;
@@ -16,6 +16,7 @@ var scafDiv, scafPar, scafFresh, scafString;
 ////88888888888////88888888888////888888888//////8888888888////
 
 //Scaffolding Refresh WAIBtn
+/*
 var updateScaffolding = function(){
     scafPar.innerHTML += scafString + "<br>";
 };
@@ -24,27 +25,10 @@ var scafFresh = scafFresh.addEventListener("click", function(ev){
     scafPar.innerHTML = scafString;
 
 });
+//*/
 
-document.addEventListener("DOMContentLoaded", function(){
-
-//position stuff
-
-
-//Where am I button
-WAIBtn.addEventListener("click", function(ev){
-    ev.preventDefault();
-    if(FlagCanCreation == false){
-    var canvas = document.createElement("canvas");
-    var context = canvas.getContext("2d");
-    canvas.setAttribute("height", 400);
-    canvas.setAttribute("id", canvas);
-    canvas.setAttribute("width", 400);
-    canvasDiv.appendChild(canvas);
-    FlagCanCreation = true;}else{}
-    scafString = FlagCanCreation;
-    updateScaffolding();
-    function reportPosition( position ){ 
-  var output = document.querySelector("#output");
+        var reportPosition = function( position ){ 
+  output = document.querySelector("#output");
   output.innerHTML += "<br>" + "Latitude: " + position.coords.latitude + "&deg;<br/>"
   + "Longitude: " + position.coords.longitude + "&deg;<br/>"
   + "Accuracy: " + position.coords.accuracy + "m<br/>"
@@ -52,27 +36,56 @@ WAIBtn.addEventListener("click", function(ev){
   + "Heading: " + position.coords.heading + " &deg;<br/>"
   + "Speed: " + position.coords.speed + " m/s<br/>"
   + "Timestamp: " + position.timestamp + "<br>";
-    var img = document.createElement("img");
-    img.setAttribute("src", "https://maps.googleapis.com/maps/api/staticmap?center=" + position.coords.latitude + "," + position.coords.longitude + "&zoom=14&size=400x400&markers=color:blue%7C" + position.coords.latitude + "," + position.coords.longitude);
-    context.drawImage(img, 400, 400);
-    output.appendChild(img);
+    img = new Image;
+    img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + position.coords.latitude + "," + position.coords.longitude + "&zoom=14&size=400x400&markers=color:blue%7C" + position.coords.latitude + "," + position.coords.longitude;
+            WAIBtn.style.display = "block";
+    
+
+    //output.appendChild(img);
     
 }
-});
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    wrapper = document.getElementById("wrapper");
+    form = document.createElement("form");
+    wrapper.appendChild(form);
+    
 
     
-var WAIBtn = document.getElementById("WAIBtn");
-var canvasDiv = document.getElementById("canvasDiv");
     
+WAIBtn = document.createElement("button");
+    WAIBtn.id = "WAIBtn";
+    WAIBtn.innerHTML = "Where am I?";
+    WAIBtn.style.display = "none";
+    form.appendChild(WAIBtn);
+    
+canvasDiv = document.createElement("div");
+    canvasDiv.id = "canvasDiv";
+    form.appendChild(canvasDiv);
+    
+    output = document.createElement("p");
+    output.id = "output";
+    form.appendChild(output);
+    
+    
+
     //Scaffolding Code
+    /*
 var scafDiv = document.getElementById("scaffolding");
 var scafPar = document.getElementById("scafPar");
 var scafFresh = document.getElementById("scafFresh");
 var scafString = "";
+    //*/
     
-    if( navigator.geolocation ){ 
+    
+
+
+    //position stuff
+
+        if( navigator.geolocation ){ 
     //code goes here to find position
-    var params = {enableHighAccuracy: false, timeout:3600, maximumAge:60000};
+    var params = {enableHighAccuracy: false, timeout:36000, maximumAge:60000};
     //enableHighAccuracy means try to use GPS and drain the battery
     //for improved accuracy within a few meters.
     //maximum age is how long to cache the location info
@@ -85,8 +98,30 @@ var scafString = "";
     //browser does not support geolocation api
     alert("Sorry, but your browser does not support location based awesomeness.")
   }
-});
 
+
+    
+    
+//Where am I button
+WAIBtn.addEventListener("click", function(ev){
+    ev.preventDefault();
+    if(FlagCanCreation == false){
+    canvas = document.createElement("canvas");
+    context = canvas.getContext("2d");
+    canvas.setAttribute("height", 400);
+    canvas.setAttribute("id", "canvas");
+    canvas.setAttribute("width", 400);
+    canvasDiv.appendChild(canvas);
+    context.drawImage(img, 0, 0);
+    FlagCanCreation = true;}else{}
+    //scafString = FlagCanCreation;
+    //updateScaffolding();
+});
+    
+    
+
+    
+    });
 
 
 function gpsError( error ){   
