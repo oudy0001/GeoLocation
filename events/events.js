@@ -2,8 +2,6 @@
 //Gobal Variables
 var WAIBtn, FlagCanCreation = false, canvas, context, output, form, img, wrapper;
 
-//Scaffolding Code
-var scafDiv, scafPar, scafFresh, scafString;
 
 
 ////88888888888////88888888888////888888888//////8888888888////
@@ -15,17 +13,7 @@ var scafDiv, scafPar, scafFresh, scafString;
 ////88888888888////88888888888////8888888888/////8888888888////
 ////88888888888////88888888888////888888888//////8888888888////
 
-//Scaffolding Refresh WAIBtn
-/*
-var updateScaffolding = function(){
-    scafPar.innerHTML += scafString + "<br>";
-};
-var scafFresh = scafFresh.addEventListener("click", function(ev){
-    ev.preventDefault();
-    scafPar.innerHTML = scafString;
 
-});
-//*/
 
         var reportPosition = function( position ){ 
   output = document.querySelector("#output");
@@ -68,19 +56,6 @@ canvasDiv = document.createElement("div");
     output.id = "output";
     form.appendChild(output);
     
-    
-
-    //Scaffolding Code
-    /*
-var scafDiv = document.getElementById("scaffolding");
-var scafPar = document.getElementById("scafPar");
-var scafFresh = document.getElementById("scafFresh");
-var scafString = "";
-    //*/
-    
-    
-
-
     //position stuff
 
         if( navigator.geolocation ){ 
