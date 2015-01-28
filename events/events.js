@@ -1,6 +1,6 @@
 
 //Gobal Variables
-var WAIBtn, FlagCanCreation = false, canvas, output;
+var WAIBtn, FlagCanCreation = false, canvas, context, output;
 
 //Scaffolding Code
 var scafDiv, scafPar, scafFresh, scafString;
@@ -25,8 +25,25 @@ var scafFresh = scafFresh.addEventListener("click", function(ev){
 
 });
 
+document.addEventListener("DOMContentLoaded", function(){
+
 //position stuff
-function reportPosition( position ){ 
+
+
+//Where am I button
+WAIBtn.addEventListener("click", function(ev){
+    ev.preventDefault();
+    if(FlagCanCreation == false){
+    var canvas = document.createElement("canvas");
+    var context = canvas.getContext("2d");
+    canvas.setAttribute("height", 400);
+    canvas.setAttribute("id", canvas);
+    canvas.setAttribute("width", 400);
+    canvasDiv.appendChild(canvas);
+    FlagCanCreation = true;}else{}
+    scafString = FlagCanCreation;
+    updateScaffolding();
+    function reportPosition( position ){ 
   var output = document.querySelector("#output");
   output.innerHTML += "<br>" + "Latitude: " + position.coords.latitude + "&deg;<br/>"
   + "Longitude: " + position.coords.longitude + "&deg;<br/>"
@@ -37,27 +54,12 @@ function reportPosition( position ){
   + "Timestamp: " + position.timestamp + "<br>";
     var img = document.createElement("img");
     img.setAttribute("src", "https://maps.googleapis.com/maps/api/staticmap?center=" + position.coords.latitude + "," + position.coords.longitude + "&zoom=14&size=400x400&markers=color:blue%7C" + position.coords.latitude + "," + position.coords.longitude);
+    context.drawImage(img, 400, 400);
     output.appendChild(img);
+    
 }
-
-//Where am I button
-WAIBtn.addEventListener("click", function(ev){
-    ev.preventDefault();
-    if(FlagCanCreation == false){
-    var canvas = document.createElement("canvas");
-    canvas.getContext("2d");
-    canvas.setAttribute("height", 400);
-    canvas.setAttribute("width", 400);
-    canvasDiv.appendChild(canvas);
-    FlagCanCreation = true;}else{}
-    scafString = FlagCanCreation;
-    updateScaffolding();
-    findMe();
 });
 
-
-
-document.addEventListener("DOMContentLoaded", function(){
     
 var WAIBtn = document.getElementById("WAIBtn");
 var canvasDiv = document.getElementById("canvasDiv");
