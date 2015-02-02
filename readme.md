@@ -1,5 +1,15 @@
 #GeoLocation Page#
 
+###Author###
+
+Chris Oudyk- A student at Algonquin College who enjoys learning how to program but has a bad habbit of making things harder on himself by making project extra complicated and misspelling thing regularly.
+
+###Instructions###
+
+1. **Be patient**- The code does work but there is a time delay to help the device figure some of the functions out.
+2. Quick Look- All the information is there once it is loaded, and the website helps you realize just how useless the numbers are by making you click a button to show a map.
+3. Show the map- Its a quick button labled "where am I?" and it shows the map.
+
 ###What it Does in Laymans Terms###
 
 This website is designed to show what the geolocation function in javascript can do.
